@@ -5,7 +5,11 @@ if(isset($_GET["p"])){
         case 'home':
             $title = "Questionnaire Project";
             include("../view/mainView.php");
-            break;            
+            break; 
+        case 'ask' :
+            $title = "Question Time";
+            include("../view/askView.php");
+            break; 
                 default:
                 $title = "Page 404";
                 include("../view/err404.php");

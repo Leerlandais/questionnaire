@@ -13,15 +13,41 @@
                 <h1>Project for Weekend 05/04/2024</h1>
                 <h2>Recreate Michael's Class Questionnaire</h2>
             </div>
-            <ul>
-            <?php foreach ($players as $play) {
-                ?>
-                <li><?=$play["play_name"]?></li>
+            <table>
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Points</th>
+                    <th>Great Answer</th>
+                    <th>Good Answer</th>
+                    <th>Bad Answer</th>
+                    <th>Absence</th>
+                    <th>Total</th>
+                </tr>
                 <?php
-            }
+                if (!is_array($players)) {
+                      echo $players;
+                }else{
+                    foreach ($players as $play) {
+                ?>
+                <tr>
+                    <td><?=$play["id"]?></td>
+                    <td><?=$play["nom"]?></td>
+                    <td><?=$play["totP"]?></td>
+                    <td><?=$play["grA"]?></td>
+                    <td><?=$play["goA"]?></td>
+                    <td><?=$play["baA"]?></td>
+                    <td><?=$play["noA"]?></td>
+                    <td><?=$play["totA"]?></td>
+                </tr>
+                <?php
+            } 
+        }
+        
                 ?>
             </ul>
-
+            </table>
+               <a href="?p=ask">Ask Random Person</a>
             <h6 id="screenwidth"></h6>
         </div><!-- end of global -->
         

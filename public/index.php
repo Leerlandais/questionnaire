@@ -6,7 +6,8 @@ require_once "../control/dbConnection.php";
 
 require_once "../model/questModel.php";
 
-$players = getPlayerNames($db);
+$players = getAllPlayerInfo($db);
+$askRandom = getRandomPlayer($db);
 
 
 
