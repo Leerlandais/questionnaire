@@ -14,22 +14,22 @@
     }else{
     foreach ($askPlayer as $ask) { 
         ?>
-    <h1>Question for <?=$ask["play_name"]?></h1>
+    <h1>Question pour <?=$ask["play_name"]?></h1>
    <div class="questForm">
     <form action="?p=success" method="POST" id="askForm">
-    <h3>Question for <?=$ask["play_name"]?></h3>
+    <h3>Question pour <?=$ask["play_name"]?></h3>
     <input type="text" name="playerInp" id="playerInp" class="hidden" value="<?=$ask["play_id"]?>">
         <label for="questInp">Question : </label>
             <textarea name="questInp" id="questInp" cols="20" rows="5"></textarea>
         <label for="ansInp">Answer : </label>
             <textarea name="answerInp" id="answerInp" cols="20" rows="5"></textarea>
             <div class="radioArea">
-           <input type="radio" name="greatInp" id="greatInp" class="radioInp">Great
-           <input type="radio" name="goodInp" id="goodInp" class="radioInp">Good
-           <input type="radio" name="badInp" id="badInp" class="radioInp">Bad
+           <input type="radio" name="greatInp" id="greatInp" class="radioInp">Superbe
+           <input type="radio" name="goodInp" id="goodInp" class="radioInp">Bonne
+           <input type="radio" name="badInp" id="badInp" class="radioInp">Mauvaise
            <input type="radio" name="absentInp" id="absentInp" class="radioInp">Absent
            </div>
-           <button type="submit">Send</button>
+           <button type="submit">Envoi</button>
     </form>
    </div>
     

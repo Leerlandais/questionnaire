@@ -16,13 +16,13 @@
             <table class="questionTable">
                 <tr>
                     <th>No</th>
-                    <th>Name</th>
+                    <th>Nom</th>
                     <th>Points</th>
-                    <th>Great Answer</th>
-                    <th>Good Answer</th>
-                    <th>Bad Answer</th>
-                    <th>Absence</th>
-                    <th>Total</th>
+                    <th>Superbe +=2</th>
+                    <th>Bonne ++</th>
+                    <th>Mauvaise --</th>
+                    <th>Absence --</th>
+                    <th>Totale</th>
                 </tr>
                 <?php
                 if (!is_array($players)) {
@@ -47,8 +47,8 @@
                 ?>
             </ul>
             </table>
+            <a href="?p=ask&player=rand" class="playerSelect playerSel">Sélection Aléatoire</a>
             <div class="playerArea">
-               <a href="?p=ask&player=rand" class="playerSelect">Ask Random Person</a>
                <?php
                 if (!is_array($players)) {
                       echo $players;
@@ -58,8 +58,8 @@
                         <a href="?p=ask&player=<?=$play["id"]?>" class="playerSelect"><?=$play["nom"]?></a>
                         <?php }} ?>
                     </div>
-                    <a href="?p=show">Show Questions</a>
-            <h6 id="screenwidth"></h6>
+                    <a href="?p=show" class="playerSelect playerSel">Afficher Questions</a>
+            <h6 id="screenwidth">sqdqd</h6>
         </div><!-- end of global -->
         
         <script src="scripts/script.js"></script>

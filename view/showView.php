@@ -8,33 +8,33 @@
 </head>
 <body>
     <div class="global">
-    <h1>List of Previous Questions</h1>
+        <h1>Liste des questions précédentes</h1>
+        <a href="?p=home">Retour</a>
     <?php
             foreach ($showQuestions as $showQ) {
                     switch ($showQ['result']) {
                         case 1 :
-                            $showQ['result'] = "great answer";        
+                            $showQ['result'] = "superbe réponse";        
                                     break;
                                 case 2 :
-                            $showQ['result'] = "good answer";
+                            $showQ['result'] = "bonne réponse";
                                     break;
                                 case 3 :
-                            $showQ['result'] = "bad answer";
+                            $showQ['result'] = "mauvaise réponse";
                                     break;
                                 case 4 :
-                            $showQ['result'] = "absence";
+                            $showQ['result'] = "manque de sa présence";
                                     break;  
                     }
     ?>
         <div class="prevQuest">
             <h4><?=$showQ["quest"]?></h4>
-            <h5>Answered by <?=$showQ["nom"]?> on the <?=$showQ["thetime"]?> with a <?=$showQ["result"]?></h5>
+            <h5>Répondu par <?=$showQ["nom"]?> le <?=$showQ["thetime"]?> avec une <?=$showQ["result"]?></h5>
             <p><?=$showQ["answer"]?></p>
         </div>
     <?php
     }
     ?>
-    <a href="?p=home">Go Back Home</a>
     </div>
     <h6 id="screenwidth"></h6>
     <script src="scripts/script.js"></script>

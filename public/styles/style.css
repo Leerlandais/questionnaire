@@ -1,8 +1,24 @@
+/*
+--black: #020300ff;
+--drab-dark-brown: #36311fff;
+--walnut-brown: #59544bff;
+--cool-gray: #7d8ca3ff;
+
+--russian-violet: #320e3bff;
+--thulian-pink: #e56399ff;
+--vista-blue: #7f96ffff;
+--light-blue: #a6cfd5ff;
+--light-cyan: #dbfcffff;
+--cambridge-blue: #94c9a9ff;
+*/
+
 body {
-    background-color: lightslategray;
+    background-color: #94c9a9ff;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #320e3bff;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .global {
@@ -19,15 +35,18 @@ body {
 }
 
 .questionTable td, .questionTable th {
-    border: 1px solid black;
+    border: 1px solid #e56399ff;
+    width: 220px;
+    height: 25px;
 }
 
+
 tr:nth-child(even) td:nth-child(even), tr:nth-child(odd) td:nth-child(odd), tr:nth-child(even) th:nth-child(even), tr:nth-child(odd) th:nth-child(odd)  {
-    background-color: aliceblue;
+    background-color: #dbfcffff;
 }
 
   tr:nth-child(odd) td:nth-child(even), tr:nth-child(even) td:nth-child(odd), tr:nth-child(odd) th:nth-child(even), tr:nth-child(even) th:nth-child(odd)  {
-    background-color: cornsilk;
+    background-color: #a6cfd5ff;
 }
 
 .hidden {
@@ -35,23 +54,33 @@ tr:nth-child(even) td:nth-child(even), tr:nth-child(odd) td:nth-child(odd), tr:n
 }
 
 .playerArea {
-    margin-top: 5vh;
+    margin: 1vh auto 1vh;
+    width: 35%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;    
+    align-items: center;
 }
 
 .playerSelect {
     text-decoration: none;
-    border: 1px solid;
-    margin-top: 10px;
-    width: 150px;
+    border: 1px solid #e56399ff;
+    margin: 10px 0;
+    width: 120px;
     height: 50px;
     line-height: 50px;
-    color: deepskyblue;
-    background-color: blueviolet;
-    
+    background-color: #dbfcffff;
+    color: #320e3bff;
+}
+
+.playerSelect:hover {
+    background-color: #a6cfd5ff;
+}
+
+.playerSel {
+    width: 150px;
+    margin: 4vh auto 0;
 }
 
 .questForm, #askForm {

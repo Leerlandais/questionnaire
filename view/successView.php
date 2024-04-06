@@ -8,8 +8,8 @@
 </head>
 <body>
     <div class="global">
-    <h1>Your Question Has Been Succesfully Added</h1>
-    <a href="?p=home">Go Back Home</a>
+    <h1>La question a été ajoutée avec succès</h1>
+    <a href="?p=home">Retour</a>
     <h6 id="screenwidth"></h6>
     </div>
     <script src="scripts/script.js"></script>
