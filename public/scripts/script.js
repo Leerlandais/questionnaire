@@ -27,4 +27,16 @@ if (document.getElementById("askForm")) {
     });
     
 }
+
+if (document.querySelector('#hideMyInfo')) {
+    const hideMyInfo = document.querySelectorAll("#hideMyInfo");
+    for (let i = 0; i < hideMyInfo.length; i++) {
+        hideMyInfo[i].addEventListener("click", function(){
+            for (let i = 0; i < hideMyInfo.length; i++) {
+                hideMyInfo[i].nextElementSibling.style.display = "none";
+            }
+            this.nextElementSibling.style.display = "inline";
+        });
+    }
+}
     

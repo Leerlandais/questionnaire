@@ -9,8 +9,8 @@
 <body>
     <div class="global">
     <?php 
-    if (!is_array($askPlayer)) {
-    echo $askPlayer;
+    if (!isset($askPlayer)) {
+    echo "problems, problems, problems";
     }else{
     foreach ($askPlayer as $ask) { 
         ?>
@@ -38,6 +38,7 @@
 }
     ?>
     </div><!-- end of global -->
+    <h6 id="screenwidth"></h6>
     <script src="scripts/script.js"></script>
 </body>
 </html>

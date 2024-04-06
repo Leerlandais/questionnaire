@@ -26,7 +26,26 @@ body {
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    width: 90%;
+}
+
+.globalShow {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-start;
+    text-align: center;
     width: 60%;
+}
+
+.global a {
+
+    width: 150px;
+    margin: 0 auto;
+}
+
+.globalShow h4, .globalShow h5 {
+    margin: 0;
 }
 
 .questionTable {
@@ -49,7 +68,7 @@ tr:nth-child(even) td:nth-child(even), tr:nth-child(odd) td:nth-child(odd), tr:n
     background-color: #a6cfd5ff;
 }
 
-.hidden {
+.hidden, .hiddenInfo {
     display: none;
 }
 

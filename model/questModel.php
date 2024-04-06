@@ -85,7 +85,7 @@ function addNewQuestion (PDO $db, $playerInp, $questInp, $answerInp, $answerType
         $sqlScore = "UPDATE scorechart 
                      SET $updateField = $updateField + 1, total_answer = total_answer + 1, total_points = total_points $adjustTotal
                      WHERE score_play_id = $playerInp";
-var_dump($sqlScore);
+
         $stmtScore = $db->prepare($sqlScore);
                  
     try {

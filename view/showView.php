@@ -10,6 +10,7 @@
     <div class="global">
         <h1>Liste des questions précédentes</h1>
         <a href="?p=home">Retour</a>
+        <div class="globalShow">
     <?php
             foreach ($showQuestions as $showQ) {
                     switch ($showQ['result']) {
@@ -28,13 +29,16 @@
                     }
     ?>
         <div class="prevQuest">
-            <h4><?=$showQ["quest"]?></h4>
+            <h4 id="hideMyInfo"><?=$showQ["quest"]?></h4>
+            <div class="hiddenInfo">
             <h5>Répondu par <?=$showQ["nom"]?> le <?=$showQ["thetime"]?> avec une <?=$showQ["result"]?></h5>
             <p><?=$showQ["answer"]?></p>
+            </div>
         </div>
     <?php
     }
     ?>
+    </div>
     </div>
     <h6 id="screenwidth"></h6>
     <script src="scripts/script.js"></script>

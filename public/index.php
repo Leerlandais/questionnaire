@@ -35,7 +35,13 @@ if (isset($_POST["questInp"])) {
     } 
     
     $addQuestion = addNewQuestion ($db, $playerInp, $questInp, $answerInp, $answerType);
-}
+}else if (isset($_POST['absentInp'])) {
+    $answerType = 4;
+    $answerInp = "";
+    $questInp = "";
+    $addQuestion = addNewQuestion ($db, $playerInp, $questInp, $answerInp, $answerType);
+} 
+
 
 
 
