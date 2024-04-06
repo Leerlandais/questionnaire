@@ -7,8 +7,11 @@ require_once "../control/dbConnection.php";
 require_once "../model/questModel.php";
 
 $players = getAllPlayerInfo($db);
-$askRandom = getRandomPlayer($db);
 $showQuestions = getAllQuestions($db);
+
+if (isset($_GET["player"])) {
+    $askPlayer = getPlayer($db, $_GET["player"]);
+}
 
 if (isset($_POST["questInp"])) {
     

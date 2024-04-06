@@ -7,6 +7,7 @@
     <title><?=$title?></title>
 </head>
 <body>
+    <div class="global">
     <h1>List of Previous Questions</h1>
     <?php
             foreach ($showQuestions as $showQ) {
@@ -34,6 +35,7 @@
     }
     ?>
     <a href="?p=home">Go Back Home</a>
+    </div>
     <h6 id="screenwidth"></h6>
     <script src="scripts/script.js"></script>
 </body>

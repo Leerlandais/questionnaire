@@ -13,7 +13,7 @@
                 <h1>Project for Weekend 05/04/2024</h1>
                 <h2>Recreate Michael's Class Questionnaire</h2>
             </div>
-            <table>
+            <table class="questionTable">
                 <tr>
                     <th>No</th>
                     <th>Name</th>
@@ -47,8 +47,18 @@
                 ?>
             </ul>
             </table>
-               <a href="?p=ask">Ask Random Person</a>
-               <a href="?p=show">Show Questions</a>
+            <div class="playerArea">
+               <a href="?p=ask&player=rand" class="playerSelect">Ask Random Person</a>
+               <?php
+                if (!is_array($players)) {
+                      echo $players;
+                }else{
+                    foreach ($players as $play) {
+                        ?>
+                        <a href="?p=ask&player=<?=$play["id"]?>" class="playerSelect"><?=$play["nom"]?></a>
+                        <?php }} ?>
+                    </div>
+                    <a href="?p=show">Show Questions</a>
             <h6 id="screenwidth"></h6>
         </div><!-- end of global -->
         

@@ -1,3 +1,64 @@
 body {
-    background-color: antiquewhite;
+    background-color: lightslategray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.global {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 60%;
+}
+
+.questionTable {
+    margin-top: 8vh;
+    border-collapse: collapse;
+}
+
+.questionTable td, .questionTable th {
+    border: 1px solid black;
+}
+
+tr:nth-child(even) td:nth-child(even), tr:nth-child(odd) td:nth-child(odd), tr:nth-child(even) th:nth-child(even), tr:nth-child(odd) th:nth-child(odd)  {
+    background-color: aliceblue;
+}
+
+  tr:nth-child(odd) td:nth-child(even), tr:nth-child(even) td:nth-child(odd), tr:nth-child(odd) th:nth-child(even), tr:nth-child(even) th:nth-child(odd)  {
+    background-color: cornsilk;
+}
+
+.hidden {
+    display: none;
+}
+
+.playerArea {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;    
+}
+
+.playerSelect {
+    text-decoration: none;
+    border: 1px solid;
+    margin-top: 10px;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    color: deepskyblue;
+    background-color: blueviolet;
+    
+}
+
+.questForm, #askForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.radioArea  {
+    margin: 10px auto 10px;
 }

@@ -32,11 +32,13 @@ function getAllPlayerInfo (PDO $db) : array | string {
     
 }
 
-function getRandomPlayer(PDO $db) : array | string {
-    $randPlayer = rand(1,9);
+function getPlayer(PDO $db, $playId) : array | string {
+    if ($playId === "rand") {
+    $playId = rand(1,9);
+    }
     $sql = "SELECT *
     FROM players
-    WHERE play_id = $randPlayer";
+    WHERE play_id = $playId";
     try {
 
         $query = $db->query($sql);
@@ -64,22 +66,26 @@ function addNewQuestion (PDO $db, $playerInp, $questInp, $answerInp, $answerType
 
     switch($answerType) {
         case "1" :
-    $updateField = "great_answer";        
+    $updateField = "great_answer"; 
+    $adjustTotal = "+ 2";       
             break;
         case "2" :
     $updateField = "good_answer";
+    $adjustTotal = "+ 1";
             break;
         case "3" :
     $updateField = "bad_answer";
+    $adjustTotal = "- 1";
             break;
         case "4" :
     $updateField = "absence";
+    $adjustTotal = "- 1";
             break;                        
     }
         $sqlScore = "UPDATE scorechart 
-                     SET $updateField = $updateField + 1, total_answer = total_answer + 1
+                     SET $updateField = $updateField + 1, total_answer = total_answer + 1, total_points = total_points $adjustTotal
                      WHERE score_play_id = $playerInp";
-
+var_dump($sqlScore);
         $stmtScore = $db->prepare($sqlScore);
                  
     try {
@@ -99,7 +105,7 @@ function getAllQuestions (PDO $db) : array | string {
             FROM questionarchive q
             JOIN players p
             ON p.play_id = q.quest_player
-            ORDER BY q.quest_id";
+            ORDER BY q.quest_id DESC";
     try {
         $query = $db->query($sql);
         $result = $query->fetchAll(PDO::FETCH_ASSOC);

@@ -7,8 +7,10 @@
     <title><?=$title?></title>
 </head>
 <body>
+    <div class="global">
     <h1>Oops, there's no page here</h1>
     <a href="?p=home">Go Back Home</a>
+    </div>
     <h6 id="screenwidth"></h6>
     <script src="scripts/script.js"></script>
 </body>

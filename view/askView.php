@@ -3,29 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
     <title><?=$title?></title>
 </head>
 <body>
     <div class="global">
     <?php 
-    if (!is_array($askRandom)) {
-    echo $askRandom;
+    if (!is_array($askPlayer)) {
+    echo $askPlayer;
     }else{
-    foreach ($askRandom as $ask) { 
+    foreach ($askPlayer as $ask) { 
         ?>
     <h1>Question for <?=$ask["play_name"]?></h1>
    <div class="questForm">
-    <form action="?p=success" method="POST">
+    <form action="?p=success" method="POST" id="askForm">
     <h3>Question for <?=$ask["play_name"]?></h3>
     <input type="text" name="playerInp" id="playerInp" class="hidden" value="<?=$ask["play_id"]?>">
         <label for="questInp">Question : </label>
             <textarea name="questInp" id="questInp" cols="20" rows="5"></textarea>
         <label for="ansInp">Answer : </label>
             <textarea name="answerInp" id="answerInp" cols="20" rows="5"></textarea>
-           <input type="radio" name="greatInp" id="greatInp">Great
-           <input type="radio" name="goodInp" id="goodInp">Good
-           <input type="radio" name="badInp" id="badInp">Bad
-           <input type="radio" name="absentInp" id="absentInp">Absent
+            <div class="radioArea">
+           <input type="radio" name="greatInp" id="greatInp" class="radioInp">Great
+           <input type="radio" name="goodInp" id="goodInp" class="radioInp">Good
+           <input type="radio" name="badInp" id="badInp" class="radioInp">Bad
+           <input type="radio" name="absentInp" id="absentInp" class="radioInp">Absent
+           </div>
            <button type="submit">Send</button>
     </form>
    </div>
@@ -35,5 +38,6 @@
 }
     ?>
     </div><!-- end of global -->
+    <script src="scripts/script.js"></script>
 </body>
 </html>
