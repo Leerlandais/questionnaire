@@ -33,20 +33,63 @@ function getAllPlayerInfo (PDO $db) : array | string {
 }
 
 function getRandomPlayer(PDO $db) : array | string {
+    $randPlayer = rand(1,9);
     $sql = "SELECT *
     FROM players
-    ORDER BY play_id ASC";
+    WHERE play_id = $randPlayer";
     try {
 
         $query = $db->query($sql);
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
         $query->closeCursor();
-// SELECT RANDOM NAME AND SEND ONLY THAT
-
         return $result;
     }catch(Exception) {
         $result = "Sorry, couldn't pick a random player";
         return $result;
     }
+}
+
+function addNewQuestion (PDO $db, $playerInp, $questInp, $answerInp, $answerType) {
+    $cleanedQuestion = htmlspecialchars(strip_tags(trim($questInp)), ENT_QUOTES);
+    $cleanedAnswer = htmlspecialchars(strip_tags(trim($answerInp)), ENT_QUOTES);
+
+    $sql = "INSERT INTO questionarchive (`quest_id`,`quest_asked`,`quest_answer`,`quest_player`,`quest_result`) VALUES (NULL, :asked, :answered, :player, :anstype)";
+
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':asked', $cleanedQuestion);
+    $stmt->bindParam(':answered', $cleanedAnswer);
+    $stmt->bindParam(':player', $playerInp);
+    $stmt->bindParam(':anstype', $answerType);
+
+
+    switch($answerType) {
+        case "1" :
+    $updateField = "great_answer";        
+            break;
+        case "2" :
+    $updateField = "good_answer";
+            break;
+        case "3" :
+    $updateField = "bad_answer";
+            break;
+        case "4" :
+    $updateField = "absence";
+            break;                        
+    }
+        $sqlScore = "UPDATE scorechart 
+                     SET $updateField = $updateField + 1, total_answer = total_answer + 1
+                     WHERE score_play_id = $playerInp";
+
+        $stmtScore = $db->prepare($sqlScore);
+                 
+    try {
+        $stmt->execute();
+        $stmtScore->execute();
+        $db->commit();
+        return true;
+    } catch (PDOException $e) {
+        error_log("Error adding Question: " . $e->getMessage());
+        return false;
+}
 }
 
