@@ -48,6 +48,7 @@
             </ul>
             </table>
                <a href="?p=ask">Ask Random Person</a>
+               <a href="?p=show">Show Questions</a>
             <h6 id="screenwidth"></h6>
         </div><!-- end of global -->
         

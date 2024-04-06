@@ -15,7 +15,7 @@
         ?>
     <h1>Question for <?=$ask["play_name"]?></h1>
    <div class="questForm">
-    <form action="?p=home" method="POST">
+    <form action="?p=success" method="POST">
     <h3>Question for <?=$ask["play_name"]?></h3>
     <input type="text" name="playerInp" id="playerInp" class="hidden" value="<?=$ask["play_id"]?>">
         <label for="questInp">Question : </label>
