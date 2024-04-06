@@ -8,6 +8,7 @@ require_once "../model/questModel.php";
 
 $players = getAllPlayerInfo($db);
 $askRandom = getRandomPlayer($db);
+$showQuestions = getAllQuestions($db);
 
 if (isset($_POST["questInp"])) {
     

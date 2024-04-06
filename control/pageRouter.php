@@ -13,7 +13,11 @@ if(isset($_GET["p"])){
         case 'success' :
             $title = "Question Added";
             include("../view/successView.php");
-            break;              
+            break;
+        case 'show' :
+            $title = "Previous Question";
+            include("../view/showView.php");
+            break;                            
                 default:
                 $title = "Page 404";
                 include("../view/err404.php");

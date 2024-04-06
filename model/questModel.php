@@ -93,3 +93,25 @@ function addNewQuestion (PDO $db, $playerInp, $questInp, $answerInp, $answerType
 }
 }
 
+function getAllQuestions (PDO $db) : array | string {
+    
+    $sql = "SELECT q.quest_asked AS quest, q.quest_answer AS answer, q.quest_result AS result, quest_time AS thetime, p.play_name AS nom
+            FROM questionarchive q
+            JOIN players p
+            ON p.play_id = q.quest_player
+            ORDER BY q.quest_id";
+    try {
+        $query = $db->query($sql);
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        $query->closeCursor();
+
+        return $result;
+    }catch(Exception) {
+        $result = "Sorry, couldn't get the questions";
+        return $result;
+    }
+    
+    
+    return $result;
+}
+
