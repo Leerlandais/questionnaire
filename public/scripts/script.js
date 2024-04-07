@@ -12,14 +12,22 @@ if (document.getElementById("askForm")) {
     
     document.getElementById("askForm").addEventListener("submit", function(event) {
         const radioInp = document.querySelectorAll(".radioInp");
+        const questInp = document.getElementById("questInp");
         let radioChecked = false;
         
         for (let i = 0; i < radioInp.length; i++) {
             if (radioInp[i].checked) {
                 radioChecked = true;
-                break;
             }
         }
+            if (radioChecked) {
+                if (questInp.value === "" && radioInp[3].checked === false) {
+                    alert("Please include the question.");
+                    event.preventDefault();        
+                }else {
+                    return;
+                }
+            }
         if (!radioChecked) {
             alert("Please select one option.");
             event.preventDefault();
@@ -35,7 +43,7 @@ if (document.querySelector('#hideMyInfo')) {
             for (let i = 0; i < hideMyInfo.length; i++) {
                 hideMyInfo[i].nextElementSibling.style.display = "none";
             }
-            this.nextElementSibling.style.display = "inline";
+            this.nextElementSibling.style.display = "flex";
         });
     }
 }

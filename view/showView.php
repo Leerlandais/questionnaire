@@ -10,6 +10,32 @@
     <div class="global">
         <h1>Liste des questions précédentes</h1>
         <a href="?p=home">Retour</a>
+        <table class="statTable">
+            <tr>
+                <th>Totale Questions</th>
+                <th>Superbe</th>
+                <th>Bonne</th>
+                <th>Mauvaise</th>
+                <th>Absence</th>
+            </tr>
+            <tr>
+                <?php 
+                $i = 0;
+                    foreach($getTotals as $tots) {
+                        if ($i < 1) {
+                ?>
+                <td><?=$tots["total_question"]?></td>
+                <td><?=$tots["total_great"]?></td>
+                <td><?=$tots["total_good"]?></td>
+                <td><?=$tots["total_bad"]?></td>
+                <td><?=$tots["total_absent"]?></td>
+                <?php
+                }
+                $i++;
+                }
+                ?>
+            </tr>
+        </table>
         <div class="globalShow">
     <?php
             foreach ($showQuestions as $showQ) {
@@ -27,15 +53,17 @@
                             $showQ['result'] = "manque de sa présence";
                                     break;  
                     }
+                    if($showQ["quest"] !== "") {
     ?>
         <div class="prevQuest">
-            <h4 id="hideMyInfo"><?=$showQ["quest"]?></h4>
-            <div class="hiddenInfo">
-            <h5>Répondu par <?=$showQ["nom"]?> le <?=$showQ["thetime"]?> avec une <?=$showQ["result"]?></h5>
+            <h4 id="hideMyInfo">- <?=$showQ["quest"]?></h4>
+            <div class="hiddenInfo ansInfo">
+            <p style="font-style: italic; font-size: small;">Répondu par <?=$showQ["nom"]?> le <?=$showQ["thetime"]?> avec une <?=$showQ["result"]?></p>
             <p><?=$showQ["answer"]?></p>
             </div>
         </div>
     <?php
+    }
     }
     ?>
     </div>

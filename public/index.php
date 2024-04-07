@@ -7,10 +7,12 @@ require_once "../control/dbConnection.php";
 require_once "../model/questModel.php";
 
 $players = getAllPlayerInfo($db);
+$getPlayerNames = getPlayer($db);
 $showQuestions = getAllQuestions($db);
+$getTotals = getQuestionTotals($db);
 
 if (isset($_GET["player"])) {
-    $askPlayer = getPlayer($db, $_GET["player"]);
+    $askPlayer = getPlayer($db, '='.$_GET["player"]);
 }
 
 if (isset($_POST["questInp"])) {

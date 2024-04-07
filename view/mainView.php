@@ -28,10 +28,11 @@
                 if (!is_array($players)) {
                       echo $players;
                 }else{
+                    $i = 1;
                     foreach ($players as $play) {
                 ?>
                 <tr>
-                    <td><?=$play["id"]?></td>
+                    <td><?=$i?></td>
                     <td><?=$play["nom"]?></td>
                     <td><?=$play["totP"]?></td>
                     <td><?=$play["grA"]?></td>
@@ -41,6 +42,7 @@
                     <td><?=$play["totA"]?></td>
                 </tr>
                 <?php
+                $i++;
             } 
         }
         
@@ -50,13 +52,11 @@
             <a href="?p=ask&player=rand" class="playerSelect playerSel">Sélection Aléatoire</a>
             <div class="playerArea">
                <?php
-                if (!is_array($players)) {
-                      echo $players;
-                }else{
-                    foreach ($players as $play) {
+                
+                    foreach ($getPlayerNames as $player) {
                         ?>
-                        <a href="?p=ask&player=<?=$play["id"]?>" class="playerSelect"><?=$play["nom"]?></a>
-                        <?php }} ?>
+                        <a href="?p=ask&player=<?=$player["play_id"]?>" class="playerSelect"><?=$player["play_name"]?></a>
+                        <?php } ?>
                     </div>
                     <a href="?p=show" class="playerSelect playerSel">Afficher Questions</a>
             <h6 id="screenwidth">sqdqd</h6>

@@ -22,11 +22,13 @@ body {
 }
 
 .global {
+    margin-top: 20vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     width: 90%;
+    
 }
 
 .globalShow {
@@ -49,7 +51,7 @@ body {
 }
 
 .questionTable {
-    margin-top: 8vh;
+    margin: 8vh auto 2vh;
     border-collapse: collapse;
 }
 
@@ -70,6 +72,9 @@ tr:nth-child(even) td:nth-child(even), tr:nth-child(odd) td:nth-child(odd), tr:n
 
 .hidden, .hiddenInfo {
     display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: left;
 }
 
 .playerArea {
@@ -78,8 +83,7 @@ tr:nth-child(even) td:nth-child(even), tr:nth-child(odd) td:nth-child(odd), tr:n
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;    
-    align-items: center;
+    
 }
 
 .playerSelect {
@@ -105,8 +109,29 @@ tr:nth-child(even) td:nth-child(even), tr:nth-child(odd) td:nth-child(odd), tr:n
 .questForm, #askForm {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 .radioArea  {
     margin: 10px auto 10px;
+}
+
+.radioInp {
+    margin-right: 15px;
+}
+
+.prevQuest {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.ansInfo p {
+    margin: 5px;
+}
+
+.statTable {
+    width: 50%;
+    margin: 10px auto;
 }
