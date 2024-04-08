@@ -95,11 +95,12 @@ if ($questType == "9") {
     $sql = "SELECT * 
             FROM questionarchive";
 }else {
+    $questType = intval($questType);
     $sql = "SELECT * 
             FROM questionarchive
             WHERE quest_result = $questType";
     }
-
+var_dump($sql);
     try {
     $query = $db->query($sql);
     $result = $query->fetchAll(PDO::FETCH_ASSOC);

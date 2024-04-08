@@ -63,31 +63,39 @@
             </div>
         </div>
     <?php
-    }else if($_GET["showtype"]){
+    }
+}
+     if($_GET["showtype"]){
+        $j = 0;
         foreach ($getAnsByType as $type) {
+            
             switch ($type['quest_result']) {
                 case 1 :
-                    $type['quest_result'] = "superbe réponse";        
+                    $type['quest_result'] = "Superbe Réponses";        
                             break;
                         case 2 :
-                    $type['quest_result'] = "bonne réponse";
+                    $type['quest_result'] = "Bonne Réponses";
                             break;
                         case 3 :
-                    $type['quest_result'] = "mauvaise réponse";
+                    $type['quest_result'] = "Mauvaise Réponse";
                             break;
                         case 4 :
-                    $type['quest_result'] = "manque de sa présence";
+                    $type['quest_result'] = "Absence";
                             break;  
             }
+           
         ?>
         <div class="prevQuest">
-            <h4> - <?=var_dump($type)?></h4>
-  
+            <?php  
+            if ($j < 1) { $i++; var_dump($j);?>
+            <h4> - <?=$type["quest_result"]?></h4>
+            
+                <?php  } ?>
+                <p><?=$type["quest_asked"]?></p>
         </div>
         <?php
         }
     }
-}
     ?>
     </div>
     </div>
