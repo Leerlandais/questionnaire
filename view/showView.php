@@ -91,7 +91,8 @@
             <h4> - <?=$type["quest_result"]?></h4>
             
                 <?php  } ?>
-                <p><?=$type["quest_asked"]?></p>
+                <p><?=$type["quest_asked"]?> --- <?=$type["quest_answer"]?> par </p>
+                <p></p>
         </div>
         <?php
         }
