@@ -91,16 +91,16 @@ function getQuestionTotals(PDO $db) : array | string {
 
 function getAnswerType(PDO $db, $questType) : array | string {
     $cleanedType = htmlspecialchars(strip_tags(trim($questType)), ENT_QUOTES);
-if ($questType == "9") {
+if ($cleanedType == "9") {
     $sql = "SELECT * 
             FROM questionarchive";
 }else {
-    $questType = intval($questType);
+    $cleanedType = intval($cleanedType);
     $sql = "SELECT * 
             FROM questionarchive
-            WHERE quest_result = $questType";
+            WHERE quest_result = $cleanedType";
     }
-var_dump($sql);
+
     try {
     $query = $db->query($sql);
     $result = $query->fetchAll(PDO::FETCH_ASSOC);

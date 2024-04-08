@@ -31,6 +31,7 @@
            </div>
            <button type="submit">Envoi</button>
     </form>
+    <a href="?p=home">Retour</a>
    </div>
     
     <?php
@@ -38,7 +39,7 @@
 }
     ?>
     </div><!-- end of global -->
-    <h6 id="screenwidth"></h6>
+    <h6 id="screenwidth" style="display: none;"></h6>
     <script src="scripts/script.js"></script>
 </body>
 </html>

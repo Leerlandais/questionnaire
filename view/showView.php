@@ -53,7 +53,7 @@
                             $showQ['result'] = "manque de sa présence";
                                     break;  
                     }
-                 if(!isset($_GET["showtype"])) {
+                 if(!isset($_GET["showtype"]) || $_GET["showtype"] === "all") {
     ?>
         <div class="prevQuest">
             <h4 id="hideMyInfo">- <?=$showQ["quest"]?></h4>
@@ -65,7 +65,7 @@
     <?php
     }
 }
-     if($_GET["showtype"]){
+     if(isset($_GET["showtype"]) && $_GET["showtype"] != 'all' ){
         $j = 0;
         foreach ($getAnsByType as $type) {
             
@@ -87,7 +87,7 @@
         ?>
         <div class="prevQuest">
             <?php  
-            if ($j < 1) { $i++; var_dump($j);?>
+            if ($j < 1) { $j++; ?>
             <h4> - <?=$type["quest_result"]?></h4>
             
                 <?php  } ?>
@@ -99,7 +99,7 @@
     ?>
     </div>
     </div>
-    <h6 id="screenwidth"></h6>
+    <h6 id="screenwidth" style="display: none;"></h6>
     <script src="scripts/script.js"></script>
 </body>
 </html>

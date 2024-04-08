@@ -10,7 +10,7 @@
     <div class="global">
     <h1>La question a été ajoutée avec succès</h1>
     <a href="?p=home">Retour</a>
-    <h6 id="screenwidth"></h6>
+    <h6 id="screenwidth" style="display: none;"></h6>
     </div>
     <script src="scripts/script.js"></script>
 </body>

@@ -63,8 +63,7 @@ if (isset($_GET["showtype"])) {
                             break;                                                
                         }
                         
-                        var_dump($_GET["showtype"]);
-                        var_dump($ansType);
+
     $getAnsByType = getAnswerType($db, $ansType);
 }
 

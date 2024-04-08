@@ -59,7 +59,7 @@
                         <?php } ?>
                     </div>
                     <a href="?p=show" class="playerSelect playerSel">Afficher Questions</a>
-            <h6 id="screenwidth">sqdqd</h6>
+            <h6 id="screenwidth" style="display: none;"></h6>
         </div><!-- end of global -->
         
         <script src="scripts/script.js"></script>
