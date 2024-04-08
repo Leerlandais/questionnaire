@@ -68,8 +68,4 @@ if (isset($_GET["showtype"])) {
 }
 
 
-
-
-
-
 require_once "../control/pageRouter.php";

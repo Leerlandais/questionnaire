@@ -22,7 +22,7 @@ body {
 }
 
 .global {
-    margin-top: 20vh;
+    margin-top: 5vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
