@@ -12,11 +12,11 @@
         <a href="?p=home">Retour</a>
         <table class="statTable">
             <tr>
-                <th>Totale Questions</th>
-                <th>Superbe</th>
-                <th>Bonne</th>
-                <th>Mauvaise</th>
-                <th>Absence</th>
+                <th><a href="?p=show&showtype=all">Totale Questions</a></th>
+                <th><a href="?p=show&showtype=great">Superbe</a></th>
+                <th><a href="?p=show&showtype=good">Bonne</a></th>
+                <th><a href="?p=show&showtype=bad">Mauvaise</a></th>
+                <th><a href="?p=show&showtype=abs">Absence</a></th>
             </tr>
             <tr>
                 <?php 
@@ -53,7 +53,7 @@
                             $showQ['result'] = "manque de sa présence";
                                     break;  
                     }
-                    if($showQ["quest"] !== "") {
+                 if(!isset($_GET["showtype"])) {
     ?>
         <div class="prevQuest">
             <h4 id="hideMyInfo">- <?=$showQ["quest"]?></h4>
@@ -63,8 +63,31 @@
             </div>
         </div>
     <?php
+    }else if($_GET["showtype"]){
+        foreach ($getAnsByType as $type) {
+            switch ($type['quest_result']) {
+                case 1 :
+                    $type['quest_result'] = "superbe réponse";        
+                            break;
+                        case 2 :
+                    $type['quest_result'] = "bonne réponse";
+                            break;
+                        case 3 :
+                    $type['quest_result'] = "mauvaise réponse";
+                            break;
+                        case 4 :
+                    $type['quest_result'] = "manque de sa présence";
+                            break;  
+            }
+        ?>
+        <div class="prevQuest">
+            <h4> - <?=var_dump($type)?></h4>
+  
+        </div>
+        <?php
+        }
     }
-    }
+}
     ?>
     </div>
     </div>

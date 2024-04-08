@@ -89,6 +89,29 @@ function getQuestionTotals(PDO $db) : array | string {
             }
 }
 
+function getAnswerType(PDO $db, $questType) : array | string {
+    $cleanedType = htmlspecialchars(strip_tags(trim($questType)), ENT_QUOTES);
+if ($questType == "9") {
+    $sql = "SELECT * 
+            FROM questionarchive";
+}else {
+    $sql = "SELECT * 
+            FROM questionarchive
+            WHERE quest_result = $questType";
+    }
+
+    try {
+    $query = $db->query($sql);
+    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+    $query->closeCursor();
+    
+        return $result;
+    } catch (Exception ) {
+       $result = "Error getting Types";
+        return $result;
+    }
+}
+
 function addNewQuestion (PDO $db, $playerInp, $questInp, $answerInp, $answerType) {
     $cleanedQuestion = htmlspecialchars(strip_tags(trim($questInp)), ENT_QUOTES);
     $cleanedAnswer = htmlspecialchars(strip_tags(trim($answerInp)), ENT_QUOTES);

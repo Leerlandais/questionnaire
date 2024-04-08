@@ -33,7 +33,7 @@ if (isset($_POST["questInp"])) {
     }else if (isset($_POST['absentInp'])) {
         $answerType = 4;
         $answerInp = "";
-        $questInp = "";
+        $questInp = "absent";
     } 
     
     $addQuestion = addNewQuestion ($db, $playerInp, $questInp, $answerInp, $answerType);
@@ -43,6 +43,30 @@ if (isset($_POST["questInp"])) {
     $questInp = "";
     $addQuestion = addNewQuestion ($db, $playerInp, $questInp, $answerInp, $answerType);
 } 
+
+if (isset($_GET["showtype"])) {
+    switch($_GET["showtype"]) {
+        case "all" :
+            $ansType = "9";
+            break;
+            case "great" :
+                $ansType = "1";
+                break;
+                case "good" :
+                    $ansType = "2";
+                    break;
+                    case "bad" :
+                        $ansType = "3";
+                        break;
+                        case "abs" :
+                            $ansType = "4";
+                            break;                                                
+                        }
+                        
+                        var_dump($_GET["showtype"]);
+                        var_dump($ansType);
+    $getAnsByType = getAnswerType($db, $ansType);
+}
 
 
 

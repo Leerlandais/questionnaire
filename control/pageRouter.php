@@ -26,3 +26,5 @@ if(isset($_GET["p"])){
         $title = "Questionnaire Project";
     include("../view/mainView.php");
 }
+
+
